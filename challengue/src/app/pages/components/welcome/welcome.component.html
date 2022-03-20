@@ -1,0 +1,38 @@
+<nz-page-header
+  class="site-page-header"
+  nzTitle="Pagina principal"
+  nzSubtitle="Platillo del día"
+></nz-page-header>
+<nz-descriptions [nzTitle]="daySaucer.strMeal!">
+  <nz-descriptions-item nzTitle="Tipo de menú" [nzSpan]="1">
+    {{ daySaucer.strArea! }}</nz-descriptions-item
+  >
+  <nz-descriptions-item nzTitle="Categoría" [nzSpan]="2">
+    {{ daySaucer.strCategory! }}</nz-descriptions-item
+  >
+  <nz-descriptions-item nzTitle="Ingredientes" [nzSpan]="3">
+    <!-- {{ ingredients | json }} -->
+    <br />
+    <button
+      nz-button
+      nzType="primary"
+      nzShape="round"
+      *ngFor="let item of ingredients"
+    >
+      {{ item }}
+    </button>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Platillo" [nzSpan]="2">
+    <img [src]="daySaucer.strMealThumb!" class="img-welcome" />
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Ir al platillo">
+    <button
+      nz-button
+      nzType="primary"
+      nzShape="round"
+      [routerLink]="['/pages/meals', daySaucer.idMeal!]"
+    >
+      <i nz-icon nzType="send" nzTheme="outline"></i>
+    </button>
+  </nz-descriptions-item>
+</nz-descriptions>
