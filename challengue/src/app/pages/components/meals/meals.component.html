@@ -3,6 +3,7 @@
   nzTitle="Platillos"
   [nzSubtitle]="listType"
 ></nz-page-header>
+
 <nz-table #basicTable [nzData]="meals" style="max-height: 50vh; overflow: auto">
   <thead>
     <tr>
@@ -23,17 +24,3 @@
     </tr>
   </tbody>
 </nz-table>
-<!-- <nz-modal
-  [(nzVisible)]="isVisible"
-  [nzTitle]="selectedTopic.strIngredient"
-  (nzOnCancel)="handleCancel()"
-  [nzFooter]="modalFooter"
-  nzOkDisabled="true"
->
-  <ng-container *nzModalContent>
-    <p>{{ selectedTopic.strDescription }}</p>
-  </ng-container>
-  <ng-template #modalFooter>
-    <button nz-button nzType="primary" (click)="handleCancel()">Cerrar</button>
-  </ng-template>
-</nz-modal> -->
