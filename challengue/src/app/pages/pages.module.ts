@@ -21,6 +21,8 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { MealComponent } from './components/meal/meal.component';
+import { UserComponent } from './components/user/user.component';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 
 @NgModule({
@@ -38,9 +40,10 @@ import { MealComponent } from './components/meal/meal.component';
     NzModalModule,
     NzGridModule,
     NzDropDownModule,
-    NzCarouselModule
+    NzCarouselModule,
+    NzCardModule
   ],
-  declarations: [WelcomeComponent, PagesComponent, IngredientsComponent, MealsComponent, MealComponent],
+  declarations: [WelcomeComponent, PagesComponent, IngredientsComponent, MealsComponent, MealComponent, UserComponent],
   exports: [WelcomeComponent, PagesComponent],
   providers: [{ provide: NZ_I18N, useValue: es_ES }]
 })
