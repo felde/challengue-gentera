@@ -1,0 +1,14 @@
+<nz-card style="width: 300px" nzTitle="Login">
+  <p>Ingrese su usuario</p>
+  <input nz-input placeholder="user... por ejemplo" [(ngModel)]="usr" />
+  <p>ingrese la contraseña</p>
+  <input
+    nz-input
+    type="password"
+    placeholder="root.. podría ser"
+    [(ngModel)]="pass"
+  />
+  <br />
+  <br />
+  <button nz-button nzType="primary" (click)="login()">Ingresar</button>
+</nz-card>
