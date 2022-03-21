@@ -1,1 +1,39 @@
-<p>meals works!</p>
+<nz-page-header
+  class="site-page-header"
+  nzTitle="Platillos"
+  [nzSubtitle]="listType"
+></nz-page-header>
+<nz-table #basicTable [nzData]="meals" style="max-height: 50vh; overflow: auto">
+  <thead>
+    <tr>
+      <th>Platillo</th>
+      <th>Imagen</th>
+      <th>Ver platillo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.strMeal }}</td>
+      <td>
+        <img [src]="data.strMealThumb" style="max-width: 150px" />
+      </td>
+      <td>
+        <a [routerLink]="['/pages/meal', data.idMeal]">Ver</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+<!-- <nz-modal
+  [(nzVisible)]="isVisible"
+  [nzTitle]="selectedTopic.strIngredient"
+  (nzOnCancel)="handleCancel()"
+  [nzFooter]="modalFooter"
+  nzOkDisabled="true"
+>
+  <ng-container *nzModalContent>
+    <p>{{ selectedTopic.strDescription }}</p>
+  </ng-container>
+  <ng-template #modalFooter>
+    <button nz-button nzType="primary" (click)="handleCancel()">Cerrar</button>
+  </ng-template>
+</nz-modal> -->

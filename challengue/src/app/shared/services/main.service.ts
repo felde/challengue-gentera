@@ -20,7 +20,7 @@ export class MainService {
       let ptrs = "";
       Object.entries(params)
         .forEach(([k, v]) => {
-          ptrs += `${k}=${params[k]}`;
+          ptrs += `${k}=${params[k]}&`;
         });
       url += `?${ptrs}`;
       console.log(url);
