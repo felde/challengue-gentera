@@ -22,7 +22,9 @@
       <td>
         <a (click)="viewTopic(data)">Detalle</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a [routerLink]="['/meals/list', data.strIngredient]">Platillos</a>
+        <a [routerLink]="['/pages/meals/list', data.strIngredient]"
+          >Platillos</a
+        >
       </td>
     </tr>
   </tbody>
