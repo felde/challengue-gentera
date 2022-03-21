@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/pages/welcome' },
   {
     path: 'pages',
-    loadChildren: () => import('./pages/welcome.module').then(m => m.WelcomeModule),
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
     component: PagesComponent
   }
 ];

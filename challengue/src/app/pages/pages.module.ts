@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { WelcomeRoutingModule } from './welcome-routing.module';
+import { PagesRoutingModule } from './pages-routing.module';
 
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { PagesComponent } from './pages.component';
@@ -11,23 +11,30 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 import { CommonModule } from '@angular/common';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
+import { MealsComponent } from './components/meals/meals.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    WelcomeRoutingModule,
+    PagesRoutingModule,
     NzLayoutModule,
     NzMenuModule,
     NzIconModule,
     NzPageHeaderModule,
     NzDescriptionsModule,
-    NzButtonModule
+    NzButtonModule,
+    NzTableModule,
+    NzDividerModule,
+    NzModalModule
   ],
-  declarations: [WelcomeComponent, PagesComponent, IngredientsComponent],
+  declarations: [WelcomeComponent, PagesComponent, IngredientsComponent, MealsComponent],
   exports: [WelcomeComponent, PagesComponent],
   providers: [{ provide: NZ_I18N, useValue: es_ES }]
 })
-export class WelcomeModule { }
+export class PagesModule { }

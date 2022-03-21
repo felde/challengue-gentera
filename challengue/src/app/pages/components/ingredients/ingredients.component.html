@@ -1,1 +1,43 @@
-<p>ingredients works!</p>
+<nz-page-header
+  class="site-page-header"
+  nzTitle="Ingredientes populares"
+  nzSubtitle="Listado"
+></nz-page-header>
+<nz-table
+  #basicTable
+  [nzData]="topics"
+  style="max-height: 50vh; overflow: auto"
+>
+  <thead>
+    <tr>
+      <th>Ingrediente</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.strIngredient }}</td>
+      <td>{{ data.strDescription | slice: 0:100 }}</td>
+      <td>
+        <a (click)="viewTopic(data)">Detalle</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a [routerLink]="['/meals/list', data.strIngredient]">Platillos</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzTitle]="selectedTopic.strIngredient"
+  (nzOnCancel)="handleCancel()"
+  [nzFooter]="modalFooter"
+  nzOkDisabled="true"
+>
+  <ng-container *nzModalContent>
+    <p>{{ selectedTopic.strDescription }}</p>
+  </ng-container>
+  <ng-template #modalFooter>
+    <button nz-button nzType="primary" (click)="handleCancel()">Cerrar</button>
+  </ng-template>
+</nz-modal>

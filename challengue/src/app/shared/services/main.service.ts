@@ -16,11 +16,16 @@ export class MainService {
   }
 
   public requestPetition(url: string, method: string, params: any | null): Observable<ResultApi> {
-    const parameters: HttpParams = new HttpParams();
     if (params != null) {
+      let ptrs = "";
       Object.entries(params)
-        .forEach(([k, v]) => { parameters.set(k, params[k]); })
+        .forEach(([k, v]) => {
+          ptrs += `${k}=${params[k]}`;
+        });
+      url += `?${ptrs}`;
+      console.log(url);
+
     }
-    return this.httpClient.request<ResultApi>(method, this._baseURL + url, { params: parameters });
+    return this.httpClient.request<ResultApi>(method, this._baseURL + url);
   }
 }
