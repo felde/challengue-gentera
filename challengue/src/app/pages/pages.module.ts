@@ -17,6 +17,8 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { CommonModule } from '@angular/common';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
 import { MealsComponent } from './components/meals/meals.component';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { MealsComponent } from './components/meals/meals.component';
     NzButtonModule,
     NzTableModule,
     NzDividerModule,
-    NzModalModule
+    NzModalModule,
+    NzGridModule,
+    NzDropDownModule
   ],
   declarations: [WelcomeComponent, PagesComponent, IngredientsComponent, MealsComponent],
   exports: [WelcomeComponent, PagesComponent],

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Area } from 'src/app/shared/interfaces/area';
+import { Category } from 'src/app/shared/interfaces/category.interface';
 import { ResultApi } from 'src/app/shared/interfaces/meals';
 import { Saucer } from 'src/app/shared/interfaces/saucer.interface';
+import { Topic } from 'src/app/shared/interfaces/topic.interface';
 import { MainService } from 'src/app/shared/services/main.service';
 
 @Component({
@@ -12,8 +15,11 @@ import { MainService } from 'src/app/shared/services/main.service';
 export class MealsComponent implements OnInit {
   public listType: string = "Listado";
   public meals: Saucer[] = [];
+  public categories: Category[] = [];
+  public areas: Area[] = [];
+  public topics: Topic[] = [];
   public params: any = null;
-  private filter: string = "";
+  public filter: string = "";
   constructor(
     private _service: MainService,
     private _ar: ActivatedRoute
@@ -31,9 +37,38 @@ export class MealsComponent implements OnInit {
         this.listType = "Buscador de platillos";
         this.params = {};
         this.meals = [];
+        this.loadFilters();
       }
     });
 
+  }
+  public makeFilter(type: string, filter: string): void {
+    this.params = {};
+    this.params[type] = filter;
+    this.loadMeals();
+  }
+  private loadFilters() {
+    this._service.requestPetition("list.php", "GET", { c: "list" }).subscribe(
+      (r: ResultApi) => {
+        if (r.meals.length > 0) {
+          this.categories = r.meals;
+        }
+      }
+    );
+    this._service.requestPetition("list.php", "GET", { a: "list" }).subscribe(
+      (r: ResultApi) => {
+        if (r.meals.length > 0) {
+          this.areas = r.meals;
+        }
+      }
+    );
+    this._service.requestPetition("list.php", "GET", { i: "list" }).subscribe(
+      (r: ResultApi) => {
+        if (r.meals.length > 0) {
+          this.topics = r.meals;
+        }
+      }
+    );
   }
   private loadMeals() {
     this._service.requestPetition("filter.php", "GET", this.params != null ? this.params : { i: this.filter }).subscribe(

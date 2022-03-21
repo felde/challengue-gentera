@@ -3,7 +3,62 @@
   nzTitle="Platillos"
   [nzSubtitle]="listType"
 ></nz-page-header>
-
+<div nz-row [nzGutter]="16" *ngIf="filter == 'na'">
+  <div nz-col class="gutter-row" [nzSpan]="24">
+    <h4>Filtrar por:</h4>
+  </div>
+  <div nz-col class="gutter-row" [nzSpan]="6">
+    <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+      Área
+      <i nz-icon nzType="down"></i>
+    </a>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu>
+        <li
+          nz-menu-item
+          *ngFor="let item of areas"
+          (click)="makeFilter('a', item.strArea)"
+        >
+          {{ item.strArea }}
+        </li>
+      </ul>
+    </nz-dropdown-menu>
+  </div>
+  <div nz-col class="gutter-row" [nzSpan]="6">
+    <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menuC">
+      Categorías
+      <i nz-icon nzType="down"></i>
+    </a>
+    <nz-dropdown-menu #menuC="nzDropdownMenu">
+      <ul nz-menu>
+        <li
+          nz-menu-item
+          *ngFor="let item of categories"
+          (click)="makeFilter('c', item.strCategory)"
+        >
+          {{ item.strCategory }}
+        </li>
+      </ul>
+    </nz-dropdown-menu>
+  </div>
+  <div nz-col class="gutter-row" [nzSpan]="6">
+    <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menuI">
+      Ingrediente:
+      <i nz-icon nzType="down"></i>
+    </a>
+    <nz-dropdown-menu #menuI="nzDropdownMenu">
+      <ul nz-menu>
+        <li
+          nz-menu-item
+          *ngFor="let item of topics"
+          (click)="makeFilter('i', item.strIngredient)"
+        >
+          {{ item.strIngredient }}
+        </li>
+      </ul>
+    </nz-dropdown-menu>
+  </div>
+</div>
 <nz-table #basicTable [nzData]="meals" style="max-height: 50vh; overflow: auto">
   <thead>
     <tr>
