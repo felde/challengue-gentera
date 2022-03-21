@@ -19,6 +19,7 @@ import { IngredientsComponent } from './components/ingredients/ingredients.compo
 import { MealsComponent } from './components/meals/meals.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
     NzDividerModule,
     NzModalModule,
     NzGridModule,
-    NzDropDownModule
+    NzDropDownModule,
+    NzCarouselModule
   ],
   declarations: [WelcomeComponent, PagesComponent, IngredientsComponent, MealsComponent],
   exports: [WelcomeComponent, PagesComponent],

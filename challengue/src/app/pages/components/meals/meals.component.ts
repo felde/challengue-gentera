@@ -20,6 +20,7 @@ export class MealsComponent implements OnInit {
   public topics: Topic[] = [];
   public params: any = null;
   public filter: string = "";
+  public carousel: Saucer[] = [];
   constructor(
     private _service: MainService,
     private _ar: ActivatedRoute
@@ -76,7 +77,10 @@ export class MealsComponent implements OnInit {
         console.log(r);
         if (r.meals.length > 0) {
           this.meals = r.meals;
-
+          this.carousel = [];
+          for (let i = 0; i < 10; i++) {
+            if (this.meals[i]) this.carousel.push(this.meals[i]);
+          }
         }
       }
     );

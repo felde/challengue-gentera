@@ -1,3 +1,13 @@
+<nz-carousel nzAutoPlay [nzAutoPlaySpeed]="5000">
+  <div
+    nz-carousel-content
+    *ngFor="let item of carousel"
+    [routerLink]="['/pages/meal', item.idMeal]"
+  >
+    <img [src]="item.strMealThumb" style="max-width: 100px; margin: 0 auto" />
+    <h4>{{ item.strMeal }}</h4>
+  </div>
+</nz-carousel>
 <nz-page-header
   class="site-page-header"
   nzTitle="Platillos"
