@@ -20,6 +20,7 @@ import { MealsComponent } from './components/meals/meals.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { MealComponent } from './components/meal/meal.component';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { NzCarouselModule } from 'ng-zorro-antd/carousel';
     NzDropDownModule,
     NzCarouselModule
   ],
-  declarations: [WelcomeComponent, PagesComponent, IngredientsComponent, MealsComponent],
+  declarations: [WelcomeComponent, PagesComponent, IngredientsComponent, MealsComponent, MealComponent],
   exports: [WelcomeComponent, PagesComponent],
   providers: [{ provide: NZ_I18N, useValue: es_ES }]
 })

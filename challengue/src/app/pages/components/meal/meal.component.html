@@ -1,0 +1,27 @@
+<nz-page-header
+  class="site-page-header"
+  (nzBack)="onBack()"
+  nzBackIcon
+  [nzTitle]="meal.strMeal!"
+></nz-page-header>
+<div nz-row [nzGutter]="16">
+  <div nz-col class="gutter-row" [nzSpan]="6" [nzOffset]="6">
+    <h4>Área</h4>
+    <p>{{ meal.strArea! }}</p>
+  </div>
+  <div nz-col class="gutter-row" [nzSpan]="6">
+    <h4>Categoria</h4>
+    <p>{{ meal.strCategory! }}</p>
+  </div>
+</div>
+<div nz-row [nzGutter]="16">
+  <div nz-col class="gutter-row" [nzSpan]="6" [nzOffset]="9">
+    <img [src]="meal.strMealThumb!" style="width: 100%" />
+  </div>
+</div>
+<div nz-row [nzGutter]="16">
+  <div nz-col class="gutter-row" [nzSpan]="24">
+    <h4>Como preparar</h4>
+    <p>{{ meal.strInstructions! }}</p>
+  </div>
+</div>
